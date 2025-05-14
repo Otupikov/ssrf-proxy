@@ -1,3 +1,9 @@
+import requests
+from flask import Flask, request, Response
+import json
+
+app = Flask(__name__)
+
 @app.route('/proxy')
 def proxy():
     url = request.args.get('url')
@@ -14,8 +20,6 @@ def proxy():
     except Exception as e:
         return f'Error: {str(e)}', 500
 
-
-# 👉 вставляєш ОЦЕ НИЖЧЕ
 @app.route('/ping')
 def ping():
     return 'pong'
